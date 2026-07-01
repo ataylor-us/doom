@@ -1,7 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq doom-font (font-spec :family "NotoMono Nerd Font" :size 15))
 
-;; Fulscreen on open
+;; Fullscreen on open
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; When opening a project with projectile, open treemacs then pick file
