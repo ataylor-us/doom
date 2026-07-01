@@ -1,6 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-;; Bigger font (macOS default)
-(setq doom-font (font-spec :family "Monaco" :size 14))
+(setq doom-font (font-spec :family "NotoMono Nerd Font" :size 15))
 
 ;; Fulscreen on open
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -13,8 +12,14 @@
           (other-window 1)
           (projectile-find-file))))
 
+;; Highlight changed dirs in treemacs
+(setq +treemacs-git-mode 'deferred)
+
 ;; Pasted from docs
 (use-package! claude-code-ide
   :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
   :config
   (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
+
+(map! :leader
+      :desc "Resume Claude Code" "c t" #'claude-code-ide-resume)
