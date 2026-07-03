@@ -15,11 +15,19 @@
 ;; Highlight changed dirs in treemacs
 (setq +treemacs-git-mode 'deferred)
 
-;; Pasted from docs
 (use-package! claude-code-ide
-  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
-  :config
-  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
+  :config)
 
 (map! :leader
-      :desc "Resume Claude Code" "c t" #'claude-code-ide-resume)
+      (:prefix ("c a" . "Claude")
+       :desc "Menu (transient)"    "a" #'claude-code-ide-menu
+       :desc "Start"               "s" #'claude-code-ide
+       :desc "Resume"              "r" #'claude-code-ide-resume
+       :desc "Continue"            "c" #'claude-code-ide-continue
+       :desc "Toggle window"       "t" #'claude-code-ide-toggle
+       :desc "Switch to buffer"    "b" #'claude-code-ide-switch-to-buffer
+       :desc "List sessions"       "l" #'claude-code-ide-list-sessions
+       :desc "Send prompt"         "p" #'claude-code-ide-send-prompt
+       :desc "Insert selection"    "i" #'claude-code-ide-insert-at-mentioned
+       :desc "Send escape"         "e" #'claude-code-ide-send-escape
+       :desc "Stop session"        "k" #'claude-code-ide-stop))
