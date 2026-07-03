@@ -4,13 +4,16 @@
 ;; Fullscreen on open
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; When opening a project with projectile, open treemacs then pick file
+;; Auto open README.md w/ projectile if it exists
 (after! projectile
   (setq projectile-switch-project-action
         (lambda ()
           (treemacs-add-and-display-current-project-exclusively)
           (other-window 1)
-          (projectile-find-file))))
+          (let* ((case-fold-search t)
+                 (readme (car (directory-files (projectile-project-root)
+                                               t "\\`README\\(\\.\\|\\'\\)"))))
+            (if readme (find-file readme) (projectile-find-file))))))
 
 ;; Highlight changed dirs in treemacs
 (setq +treemacs-git-mode 'deferred)
