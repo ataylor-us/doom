@@ -24,6 +24,9 @@
 (use-package! claude-code-ide
   :config)
 
+;; Load private config
+(load! "private/config")
+
 (map! :leader
       (:prefix ("c a" . "Claude")
        :desc "Menu (transient)"    "a" #'claude-code-ide-menu
