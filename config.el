@@ -1,7 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 (setq user-full-name "Alex Taylor"
       user-mail-address "alex@ataylor-us.dev")
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/org/")
 (setq doom-font (font-spec :family "NotoMono Nerd Font" :size 15))
 
 ;; Fullscreen on open
