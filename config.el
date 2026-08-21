@@ -21,6 +21,10 @@
 ;; Highlight changed dirs in treemacs
 (setq +treemacs-git-mode 'deferred)
 
+;; Keep fringe diff marks visible for staged (uncommitted) changes
+(after! diff-hl
+  (setq diff-hl-show-staged-changes t))
+
 (use-package! claude-code-ide
   :config)
 
